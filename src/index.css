@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-jura: 'Jura', sans-serif;
+}
+
+body {
+  font-family: var(--font-jura);
+}
+
+@layer components {
+  .gold-text {
+    color: #cea86f;
+  }
+
+  .gold-background {
+    background-color: #cea86f;
+  }
+
+  .gold-border {
+    border-color: #cea86f;
+  }
+
+  .noScrollbar {
+    scrollbar-width: 0;
+  }
+
+  .noScrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+* {
+  scrollbar-width: 0;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
