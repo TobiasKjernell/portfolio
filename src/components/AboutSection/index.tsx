@@ -5,7 +5,7 @@ import { useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const techs = ['Tailwind', 'React', 'Next.js', 'Zustand', 'Zod', 'TypeScript', 'Supabase', 'Vite', 'Leaflet', 'GSAP', 'Claude AI', 'TanStack', 'React Forms', 'CSS Modules']
+const techs = ['Tailwind', 'React', 'Next.js', 'Zustand', 'Zod', 'TypeScript', 'Supabase', 'Vite', 'Leaflet', 'GSAP', 'Claude AI', 'TanStack', 'React Forms', 'CSS Modules', 'Jest/Vitest']
 
 export const AboutSection = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
