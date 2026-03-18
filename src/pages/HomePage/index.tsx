@@ -115,7 +115,7 @@ const HomePage = () => {
           <HeroSection />
           <AboutSection />
           <ProjectsSection projects={projects} hobby={hobbyProject} />
-          <FooterCTA />'
+          <FooterCTA />
         </>
       }
     </div>
