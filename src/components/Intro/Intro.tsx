@@ -116,7 +116,7 @@ export const Intro = () => {
             {/* Transparent black overlay with skew animation */}
             <div
               ref={overlayRef}
-              className="absolute top-0 -left-20  h-[200%] bg-black/90 flex items-center justify-center"
+              className="absolute top-0 -left-[5%]  h-[200%] bg-black/90 flex items-center justify-center"
               style={{
                 transformOrigin: 'left center',
                 transform: 'skewX(-5)',

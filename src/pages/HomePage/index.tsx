@@ -31,7 +31,7 @@ const HomePage = () => {
       description: 'Simple portfolio',
       techs: ['React', 'TypeScript', 'Tailwind', 'Zustand', 'Vite', 'GSAP'],
       git: '',
-      url:'',
+      url: '',
       img: 'portfolio.png'
     }
   ]
@@ -71,15 +71,15 @@ const HomePage = () => {
       git: 'https://github.com/TobiasKjernell/API_assignment',
       img: 'pokemondb.png'
     },
-    {
-      id: 5,
-      title: 'Newspaper Site',
-      description: 'Newspaper Site, layout practice with sorting',
-      techs: ['React', 'CSS Modules', 'Vite'],
-      url: 'https://react-newsletter.vercel.app/',
-      git: 'https://github.com/TobiasKjernell/reactNewsletter',
-      img: 'newspaper.png'
-    },
+    // {
+    //   id: 5,
+    //   title: 'Newspaper Site',
+    //   description: 'Newspaper Site, layout practice with sorting',
+    //   techs: ['React', 'CSS Modules', 'Vite'],
+    //   url: 'https://react-newsletter.vercel.app/',
+    //   git: 'https://github.com/TobiasKjernell/reactNewsletter',
+    //   img: 'newspaper.png'
+    // },
     {
       id: 6,
       title: 'Hotel App Next.js version',
@@ -105,6 +105,15 @@ const HomePage = () => {
       git: 'https://github.com/TobiasKjernell/graduation_project',
       img: 'graduationblog.png'
     },
+    {
+      id: 9,
+      title: 'JS Game, Hangman',
+      description: 'Hangman in pure JS with some animations',
+      techs: ['JS', 'Classic CSS'],
+      url: 'https://tobiaskjernell.github.io/Second_JS_Game_Assignment/ ',
+      git: 'https://github.com/TobiasKjernell/Second_JS_Game_Assignment',
+      img: 'game.png'
+    },  
 
   ]
   const { isIntroComplete } = useIntroStore();
