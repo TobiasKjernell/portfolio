@@ -33,6 +33,15 @@ const HomePage = () => {
       git: '',
       url: '',
       img: 'portfolio.png'
+    },
+    {
+      id:4,
+      title: 'Local LLM',
+      description: 'Local LLM chat with OLAMA support. GPU performance and token counter.',
+      techs: ['Python', 'Flask', 'React', 'Tailwind', 'Zustand', 'TypeScript', 'Claude'],
+      git: 'https://github.com/TobiasKjernell/localLLM',
+      url: '',
+      img: 'localllm.png'
     }
   ]
 
