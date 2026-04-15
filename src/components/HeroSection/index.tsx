@@ -1,6 +1,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 export const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -63,30 +64,40 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-black/60 z-1"></div>
 
       <div className="relative z-10 text-center max-w-3xl pointer-events-auto">
-        <h1 className="text-5xl md:text-7xl font-bold gold-text mb-4">  
+        <h1 className="text-5xl md:text-7xl font-bold gold-text mb-4">
           Tobias Kjernell
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-8">
           Frontend Developer & Unity3D Developer
         </p>
         <p className="text-base md:text-lg text-gray-400 mb-12">
-          Building solutions  
+          Building solutions
         </p>
 
         {/* Hero Image Placeholder */}
         <div className="w-64 h-64 md:w-80 md:h-80 mx-auto bg-linear-to-br from-[#222222] to-[#1a1a1a] rounded-lg flex items-center justify-center border-2 border-[#cea86f] shadow-2xl overflow-hidden">
-         <img src='tobbe2.jpg' className='object-cover h-full grayscale'/>
+          <img src='tobbe2.jpg' className='object-cover h-full grayscale' />
         </div>
 
-        {/* LinkedIn Button */}
-        <a
-          href="https://www.linkedin.com/in/tobias-kjernell-4b50b113a/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 px-6 py-2 border-2 border-[#cea86f] text-[#cea86f] font-semibold rounded-lg hover:bg-[#cea86f] hover:text-[#222222] transition-all duration-300 inline-block"
-        >
-          LinkedIn
-        </a>
+        <div className='flex gap-5 items-center justify-center'>
+
+          {/* LinkedIn Button */}
+          <a
+            href="https://www.linkedin.com/in/tobias-kjernell-4b50b113a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 px-6 py-2 border-2 border-[#cea86f] text-[#cea86f] font-semibold rounded-lg hover:bg-[#cea86f] hover:text-[#222222] transition-all duration-300 inline-block"
+          >
+            LinkedIn
+          </a>
+
+          <Link
+            to="/worksearch"
+            className="mt-6 px-6 py-2 border-2 border-[#cea86f] text-[#cea86f] font-semibold rounded-lg hover:bg-[#cea86f] hover:text-[#222222] transition-all duration-300 inline-block"
+          >
+            Work Search
+          </Link>
+        </div>
       </div>
 
       {/* Pulsing Faded Element */}
