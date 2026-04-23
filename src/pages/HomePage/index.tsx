@@ -18,8 +18,8 @@ const HomePage = () => {
     },
     {
       id: 2,
-      title: 'PSP Kanban',
-      description: 'Kanban for our hobby game projects, using Supabase realtime/presence, fast updates and see all the users currently editing/watching. Login/auth via Supabase',
+      title: 'PSP Dashboard',
+      description: 'Kanban for our hobby game projects, using Supabase realtime/presence, fast updates and see all the users currently editing/watching. Login/auth via Supabase. Gantt system and also ingame "Settings" for specific games.',
       techs: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Zustand', 'Vite', 'Zod'],
       git: 'https://github.com/TobiasKjernell/kanbanSPA',
       url: '',

@@ -15,20 +15,11 @@ interface JobApplication {
 const applications: JobApplication[] = [
     {
         id: 1,
-        company: 'Example AB',
+        company: 'Mojang Studios',
         workTitle: 'Frontend Developer',
         country: 'Sweden',
-        appliedDate: '2026-04-01',
+        appliedDate: '2026-04-23',
         status: 'Waiting',
-        interview: false,
-    },
-    {
-        id: 1,
-        company: 'Example AB',
-        workTitle: 'Frontend Developer',
-        country: 'Sweden',
-        appliedDate: '2026-04-01',
-        status: 'Waiting',  
         interview: false,
     },
 ]
