@@ -31,6 +31,15 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },  
+    {
+        id: 3,
+        company: 'Hackshaw Studios',
+        workTitle: 'Game Developer (Frontend)',
+        country: 'Sweden',
+        appliedDate: '2026-04-28',
+        status: 'Waiting',
+        interview: false,
+    },  
     
 ]
 
