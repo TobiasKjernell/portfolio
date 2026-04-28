@@ -22,6 +22,16 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },
+    {
+        id: 2,
+        company: 'BookBeat',
+        workTitle: 'Frontend Developer',
+        country: 'Sweden',
+        appliedDate: '2026-04-28',
+        status: 'Waiting',
+        interview: false,
+    },  
+    
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
