@@ -33,7 +33,7 @@ const applications: JobApplication[] = [
     },  
     {
         id: 3,
-        company: 'Hackshaw Studios',
+        company: 'Hacksaw Studios',
         workTitle: 'Game Developer (Frontend)',
         country: 'Sweden',
         appliedDate: '2026-04-28',
