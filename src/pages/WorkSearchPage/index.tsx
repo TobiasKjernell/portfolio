@@ -67,6 +67,15 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },       
+    {
+        id: 6,
+        company: 'Nordic Transport & IT Services AB',
+        workTitle: 'Web Developer',
+        country: 'Sweden',
+        appliedDate: '2026-05-05',
+        status: 'Waiting',
+        interview: false,
+    },       
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
