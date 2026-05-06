@@ -38,7 +38,7 @@ export const ScrollNavigation = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="w-12 h-12 bg-[#1a1a1a] border-2 border-[#cea86f] rounded-lg flex items-center justify-center text-[#cea86f] hover:bg-[#cea86f] hover:text-[#0a0a0a] transition-all duration-300 hover:shadow-lg hover:shadow-[#cea86f]/50"
+        className="w-12 h-12 bg-[#1a1a1a] border-2 border-[#cea86f] rounded-lg flex items-center justify-center text-[#cea86f] hover:bg-[#cea86f] hover:text-[#0a0a0a] transition-all duration-300"
         title="Scroll to top"
       >
         <ArrowUp size={20} />
@@ -47,7 +47,7 @@ export const ScrollNavigation = () => {
       {/* Scroll to Bottom Button */}
       <button
         onClick={scrollToBottom}
-        className="w-12 h-12 bg-[#1a1a1a] border-2 border-[#cea86f] rounded-lg flex items-center justify-center text-[#cea86f] hover:bg-[#cea86f] hover:text-[#0a0a0a] transition-all duration-300 hover:shadow-lg hover:shadow-[#cea86f]/50"
+        className="w-12 h-12 bg-[#1a1a1a] border-2 border-[#cea86f] rounded-lg flex items-center justify-center text-[#cea86f] hover:bg-[#cea86f] hover:text-[#0a0a0a] transition-all duration-300"
         title="Scroll to bottom"
       >
         <ArrowDown size={20} />
