@@ -19,10 +19,10 @@ const HomePage = () => {
     {
       id: 2,
       title: 'PSP Website',
-      description: 'Website for our hobby game projects! Also a dashboard for our crew using Supabase realtime/presence, fast updates and see all the users currently editing/watching. Login/auth via Supabase. Gantt system and also ingame "Settings" for specific games.',
+      description: 'Website for our hobby game projects (WIP)! Also a dashboard for our crew using Supabase realtime/presence, fast updates and see all the users currently editing/watching. Login/auth via Supabase. Gantt system and also ingame "Settings" for specific games.',
       techs: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Zustand', 'Vite', 'Zod'],
       git: 'https://github.com/TobiasKjernell/kanbanSPA',
-      url: '',
+      url: 'https://kanban-spa.vercel.app/',
       img: 'kanban.png'
     },
     {
