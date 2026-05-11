@@ -30,7 +30,7 @@ const applications: JobApplication[] = [
         appliedDate: '2026-04-28',
         status: 'Waiting',
         interview: false,
-    },  
+    },
     {
         id: 3,
         company: 'Hacksaw Studios',
@@ -39,7 +39,7 @@ const applications: JobApplication[] = [
         appliedDate: '2026-04-28',
         status: 'Waiting',
         interview: false,
-    },      
+    },
     {
         id: 4,
         company: 'Platform24',
@@ -48,7 +48,7 @@ const applications: JobApplication[] = [
         appliedDate: '2026-04-29',
         status: 'Declined',
         interview: false,
-    },       
+    },
     {
         id: 5,
         company: 'Newcode.ai',
@@ -57,7 +57,7 @@ const applications: JobApplication[] = [
         appliedDate: '2026-04-29',
         status: 'Waiting',
         interview: false,
-    },       
+    },
     {
         id: 6,
         company: 'XLNT SEARCH',
@@ -66,7 +66,7 @@ const applications: JobApplication[] = [
         appliedDate: '2026-04-30',
         status: 'Waiting',
         interview: false,
-    },       
+    },
     {
         id: 6,
         company: 'Nordic Transport & IT Services AB',
@@ -75,7 +75,16 @@ const applications: JobApplication[] = [
         appliedDate: '2026-05-05',
         status: 'Waiting',
         interview: false,
-    },       
+    },
+    {
+        id: 7,
+        company: 'Hedvig',
+        workTitle: 'Software Developer',
+        country: 'Sweden',
+        appliedDate: '2026-05-11',
+        status: 'Waiting',
+        interview: false,
+    },
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
@@ -145,8 +154,8 @@ const WorkSearchPage = () => {
                                     <span className="md:hidden text-xs uppercase text-gray-500 block">Interview</span>
                                     <span
                                         className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border ${app.interview
-                                                ? 'bg-[#cea86f]/10 text-[#cea86f] border-[#cea86f]/40'
-                                                : 'bg-[#222222] text-gray-400 border-[#333333]'
+                                            ? 'bg-[#cea86f]/10 text-[#cea86f] border-[#cea86f]/40'
+                                            : 'bg-[#222222] text-gray-400 border-[#333333]'
                                             }`}
                                     >
                                         {app.interview ? 'Yes' : 'No'}
