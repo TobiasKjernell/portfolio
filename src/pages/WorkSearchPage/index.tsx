@@ -37,7 +37,7 @@ const applications: JobApplication[] = [
         workTitle: 'Game Developer (Frontend)',
         country: 'Sweden',
         appliedDate: '2026-04-28',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
     {
