@@ -91,7 +91,7 @@ const applications: JobApplication[] = [
         workTitle: 'Junior Developer',
         country: 'Sweden',
         appliedDate: '2026-05-18',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
 ]
