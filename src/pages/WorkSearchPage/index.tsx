@@ -94,6 +94,15 @@ const applications: JobApplication[] = [
         status: 'Declined',
         interview: false,
     },
+    {
+        id: 8,
+        company: 'Nkel',
+        workTitle: 'Web Developer', 
+        country: 'Sweden',
+        appliedDate: '2026-06-05',
+        status: 'Waiting',
+        interview: false,
+    },
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {

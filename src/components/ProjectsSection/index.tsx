@@ -50,7 +50,7 @@ export const ProjectsSection = ({ projects, hobby }: ProjectsSectionProps) => {
     <section ref={projectsRef} className="py-20 px-4 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold gold-text mb-12 text-center">
-          Hobby Projects
+          Hobby Projects (Frontend)
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -63,7 +63,7 @@ export const ProjectsSection = ({ projects, hobby }: ProjectsSectionProps) => {
         </div>
           <div className='pb-10' />
         <h2 className="text-4xl md:text-5xl font-bold gold-text mb-12 text-center">
-          School Projects
+          School Projects (Frontend)
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

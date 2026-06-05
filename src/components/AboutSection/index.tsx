@@ -5,14 +5,13 @@ import { useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const techs = ['Tailwind', 'React', 'Next.js', 'Zustand', 'Zod', 'TypeScript', 'Supabase', 'Vite', 'Leaflet', 'GSAP', 'Claude AI', 'TanStack', 'React Forms', 'CSS Modules', 'Jest/Vitest']
-
+const techs = ['Tailwind', 'React', 'Next.js', 'Zustand', 'Zod', 'TypeScript', 'Supabase', 'Vite', 'Leaflet', 'GSAP', 'AI', 'TanStack', 'React Forms', 'CSS Modules', 'Jest/Vitest', 'Python', 'SQLAlchemy', 'Unity']
 export const AboutSection = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
     gsap.fromTo(
-      aboutRef.current,
+      aboutRef.current, 
       { opacity: 0, y: 50 },
       {
         opacity: 1,
@@ -39,24 +38,27 @@ export const AboutSection = () => {
           {/* Text */}
           <div className="space-y-4 text-gray-300">
             <p>
-              I'm a passionate developer with a love for creating intuitive and performant web
-              applications. With expertise in modern TypeScript, React, I
-              bring ideas to life through clean, maintainable code.
+              I'm a passionate developer with a love for creating intuitive, high-performance digital experiences. With expertise in modern TypeScript, React, and web technologies, I enjoy bringing ideas to life through clean, maintainable code and user-centered design.
             </p>
             <p>
-              I specialize in building responsive interfaces based on UX, optimizing performance, and implementing
-              engaging animations using tools like GSAP. Always learning, always improving. Toward the end of my education, I began using Claude AI to speed up my workflow and better understand today’s industry standards.
+              I specialize in building responsive interfaces, optimizing performance, and creating engaging interactions and animations using tools such as GSAP. I'm constantly learning and refining my skills to stay current with modern development practices.
             </p>
             <p>
-              Outside of my education and internship, I focus heavily on AI, machine learning, and Python. I’m working to better understand how to implement AI solutions and how to improve efficiency within my coding pipeline.
+              Beyond web development, I have several years of experience as a Unity developer, with a strong focus on XR applications and interactive experiences. I also enjoy creating video games and exploring new ways to blend immersive technologies with software development.
+            </p>
+            <p>
+              The combination of frontend and backend development alongside game development gives me a unique perspective on problem-solving and product creation. Working across these disciplines allows me to approach ideas from multiple angles, experiment with innovative solutions, and build experiences that are both technically robust and engaging for users.
+            </p>
+            <p>
+              Outside of my professional work, I spend a significant amount of time exploring AI, machine learning, and Python development. I'm continuously expanding my understanding of how intelligent systems can be integrated into applications and how AI can be leveraged to improve development workflows, productivity, and user experiences.
             </p>
             <p>
               When I’m not coding, you can usually find me in my rehearsal studio playing drums. I love music, i hope you do too  .
             </p>
-            
+
             <h2>My go-to techstack</h2>
             <div className="flex flex-wrap gap-2 pt-2">
-              
+
               {techs.map((tech) => (
                 <span
                   key={tech}
