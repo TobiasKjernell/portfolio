@@ -95,12 +95,21 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 8,
+        id: 9,
         company: 'Nkel',
-        workTitle: 'Web Developer', 
+        workTitle: 'Web Developer',
         country: 'Sweden',
         appliedDate: '2026-06-05',
         status: 'Declined',
+        interview: false,
+    },
+    {
+        id: 10,
+        company: 'Tenth Revolution Group (Frontend Developer at AI focused Microsoft Partner)',
+        workTitle: 'Frontend Developer',
+        country: 'Sweden',
+        appliedDate: '2026-06-30',
+        status: 'Waiting',
         interview: false,
     },
 ]
