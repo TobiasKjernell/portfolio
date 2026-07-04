@@ -7,9 +7,7 @@ import WorkSearchPage from './pages/WorkSearchPage'
 function App() {
   return (
     <BrowserRouter>
-      <div className='hidden lg:block'>
       <Intro />
-      </div>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/worksearch' element={<WorkSearchPage />} />
