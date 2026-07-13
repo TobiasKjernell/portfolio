@@ -112,6 +112,15 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },
+    {
+        id: 11,
+        company: 'Sellpy',
+        workTitle: 'Junior Software Engineer',
+        country: 'Sweden',
+        appliedDate: '2026-07-13',
+        status: 'Waiting',
+        interview: false,
+    },
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
