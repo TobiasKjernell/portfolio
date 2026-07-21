@@ -121,6 +121,15 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },
+    {
+        id: 12,
+        company: 'SSC Space',
+        workTitle: 'Frontend Software Engineer',
+        country: 'Sweden',
+        appliedDate: '2026-07-21',
+        status: 'Waiting',
+        interview: false,
+    },
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
@@ -160,9 +169,9 @@ const WorkSearchPage = () => {
                     {applications.map((app) => (
                         <li
                             key={app.id}
-                            className="bg-[#1a1a1a] rounded-lg border-2 border-transparent hover:border-[#cea86f] hover:shadow-xl hover:shadow-[#cea86f]/20 transition-all duration-200 hover:scale-105 hover:z-10 relative     " 
+                            className="bg-[#1a1a1a] rounded-lg border-2 border-transparent hover:border-[#cea86f] hover:shadow-xl hover:shadow-[#cea86f]/20 transition-all duration-200 hover:scale-105 hover:z-10 relative     "
                         >
-                            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1.5fr_1fr_1fr_1fr_0.8fr] gap-4 px-6 py-4 items-center">    
+                            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1.5fr_1fr_1fr_1fr_0.8fr] gap-4 px-6 py-4 items-center">
                                 <div>
                                     <span className="md:hidden text-xs uppercase text-gray-500 block">Company</span>
                                     <span className="gold-text font-semibold">{app.company}</span>
