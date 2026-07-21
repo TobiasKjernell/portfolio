@@ -1,5 +1,6 @@
 import { HeroSection } from '../../components/HeroSection'
 import { AboutSection } from '../../components/AboutSection'
+import { HomeLabSection } from '../../components/HomeLabSection'
 import { ProjectsSection } from '../../components/ProjectsSection'
 import { FooterCTA } from '../../components/FooterCTA'
 import { useIntroStore } from '../../stores/useIntroStore'
@@ -132,6 +133,7 @@ const HomePage = () => {
         <>
           <HeroSection />
           <AboutSection />
+          <HomeLabSection />
           <ProjectsSection projects={projects} hobby={hobbyProject} />
           <FooterCTA />
         </>

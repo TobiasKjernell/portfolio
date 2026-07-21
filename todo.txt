@@ -1,0 +1,7 @@
+I need a section above my "Frontend projects" for my hobby server.
+
+I have a server where i have installed proxmox, within that i have a linux VM with coolify + cloudflare support for my websites.
+I also have a VM for hosting my NPM packages with verdaccio and using tailscale to read/write to verdaccio for packages.
+Here i need something cool that maps our everything visually in a professional way so the readers can understand it.
+Explaning what promox is, what coolify does etc.
+I wan't people to be amazed about this mapping. This also needs to be responseviness to mobile.
