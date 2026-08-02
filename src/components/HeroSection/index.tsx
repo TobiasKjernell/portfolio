@@ -97,6 +97,13 @@ export const HeroSection = () => {
           >
             Work Search
           </Link>
+
+          <Link
+            to="/tutorials"
+            className="mt-6 px-6 py-2 border-2 border-[#cea86f] text-[#cea86f] font-semibold rounded-lg hover:bg-[#cea86f] hover:text-[#222222] transition-all duration-300 inline-block"
+          >
+            Tutorials
+          </Link>
         </div>
       </div>
 
