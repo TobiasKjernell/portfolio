@@ -61,7 +61,7 @@ export const ProjectsSection = ({ projects, hobby }: ProjectsSectionProps) => {
             />
           ))}
         </div>
-          <div className='pb-10' />
+          {/* <div className='pb-10' />
         <h2 className="text-4xl md:text-5xl font-bold gold-text mb-12 text-center">
           School Projects (Frontend)
         </h2>
@@ -73,7 +73,7 @@ export const ProjectsSection = ({ projects, hobby }: ProjectsSectionProps) => {
               {...project}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   )
