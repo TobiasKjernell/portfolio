@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { tutorials } from './tutorialsData'
 
 const TutorialsPage = () => {
+
   return (
     <div className="min-h-screen w-full bg-[#0a0a0a] text-white noScrollbar">
       <div className="max-w-6xl mx-auto px-6 py-16">

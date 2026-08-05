@@ -5,6 +5,7 @@ import { ScrollNavigation } from './components/ScrollNavigation'
 import WorkSearchPage from './pages/WorkSearchPage'
 import TutorialsPage from './pages/TutorialsPage'
 import SystemDesignPage from './pages/TutorialsPage/SystemDesign'
+import TypeScriptReactPage from './pages/TutorialsPage/TypeScriptReact'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/worksearch' element={<WorkSearchPage />} />
         <Route path='/tutorials' element={<TutorialsPage />} />
         <Route path='/tutorials/system-design' element={<SystemDesignPage />} />
+        <Route path='/tutorials/typescript-with-react' element={<TypeScriptReactPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <ScrollNavigation />
@@ -23,3 +25,4 @@ function App() {
 }
 
 export default App
+    

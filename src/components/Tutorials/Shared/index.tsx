@@ -63,6 +63,76 @@ export const Arrow = ({ dir = 'down' }: { dir?: 'down' | 'right' }) => (
   <span className="gold-text text-lg leading-none">{dir === 'down' ? '↓' : '→'}</span>
 )
 
+const TOKEN_PATTERN =
+  /(\/\/.*$)|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*`)|(\b(?:const|let|var|function|return|interface|type|import|export|from|if|else|for|while|extends|implements|new|as|void|null|undefined|true|false|this|typeof|async|await|default|of|in|class|public|private|readonly|static|switch|case|break|continue|try|catch|finally|throw|do|instanceof)\b)|(\b(?:string|number|boolean|any|unknown|never|object|symbol|bigint)\b)|(\b\d+(?:\.\d+)?\b)|(\b[A-Z][A-Za-z0-9_]*\b)|([a-zA-Z_$][\w$]*(?=\())/g
+
+// Order matches the capture groups in TOKEN_PATTERN above
+const TOKEN_CLASSES = [
+  'text-gray-500 italic', // comment
+  'text-emerald-400', // string
+  'text-[#c792ea]', // keyword
+  'text-sky-400', // built-in type (string, number, boolean...)
+  'text-orange-300', // number literal
+  'text-teal-300', // capitalized type / interface / component name
+  'text-pink-300', // function call
+]
+
+const tokenizeLine = (line: string) => {
+  const tokens: { text: string; className?: string }[] = []
+  let lastIndex = 0
+  TOKEN_PATTERN.lastIndex = 0
+
+  let match: RegExpExecArray | null
+  while ((match = TOKEN_PATTERN.exec(line))) {
+    if (match.index > lastIndex) {
+      tokens.push({ text: line.slice(lastIndex, match.index) })
+    }
+    const groupIndex = match.slice(1).findIndex((group) => group !== undefined)
+    tokens.push({ text: match[0], className: TOKEN_CLASSES[groupIndex] })
+    lastIndex = match.index + match[0].length
+  }
+  if (lastIndex < line.length) {
+    tokens.push({ text: line.slice(lastIndex) })
+  }
+  return tokens
+}
+
+export const CodeBlock = ({ children, label }: { children: string; label?: string }) => {
+  const lines = children.replace(/\n$/, '').split('\n')
+
+  return (
+    <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg overflow-hidden">
+      {label && (
+        <div className="px-4 py-2 border-b border-[#cea86f]/20">
+          <span className="text-xs uppercase tracking-wider text-gray-500">{label}</span>
+        </div>
+      )}
+      <pre className="overflow-x-auto py-4 text-xs leading-relaxed">
+        <code className="table w-full text-gray-300">
+          {lines.map((line, index) => (
+            <div key={index} className="table-row">
+              <span className="table-cell select-none text-gray-600 text-right pl-4 pr-4 w-8">
+                {index + 1}
+              </span>
+              <span className="table-cell pr-4">
+                {tokenizeLine(line).map((token, tokenIndex) =>
+                  token.className ? (
+                    <span key={tokenIndex} className={token.className}>
+                      {token.text}
+                    </span>
+                  ) : (
+                    token.text
+                  ),
+                )}
+              </span>
+            </div>
+          ))}
+        </code>
+      </pre>
+    </div>
+  )
+}
+
 export const ProsConsCard = ({
   title,
   pros,
