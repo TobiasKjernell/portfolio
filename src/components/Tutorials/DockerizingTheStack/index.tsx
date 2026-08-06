@@ -102,11 +102,81 @@ const DatabaseImageSection = () => (
     <span className="text-sm font-semibold gold-text">The Database — You Don't Write This Dockerfile</span>
     <p className="text-white leading-relaxed text-sm">
       Unlike the frontend and backend, you almost never build a custom image for the database itself — you pull
-      the official one (<code className="text-[#cea86f]">postgres:16-alpine</code>,{' '}
-      <code className="text-[#cea86f]">mongo:7</code>) and just configure it: which database name, which
-      credentials, and — critically — where its data lives outside the container, since a container's own
-      filesystem disappears the moment it's removed.
+      the official one for whichever engine you're using and configure it entirely through environment variables
+      and a mounted volume, no Dockerfile required.
     </p>
+    <p className="text-white leading-relaxed text-sm">
+      <code className="text-[#cea86f]">docker pull</code> is the command that actually fetches an image — it
+      downloads that image's layers from a registry (Docker Hub by default, the same place the{' '}
+      <code className="text-[#cea86f]">FROM</code> line in every Dockerfile above pulls its base image from) and
+      stores them locally, ready to run:
+    </p>
+    <CodeBlock label="terminal — pulling official images">{`docker pull postgres:16-alpine
+docker pull mysql:8
+docker pull mongo:7
+docker images`}</CodeBlock>
+    <ul className="space-y-2">
+      {[
+        'The tag after the colon (16-alpine, 8, 7) pins a specific version — leaving it off pulls :latest, which is fine for poking around locally but a bad idea for anything you\'ll deploy, since it can silently change what you get on a later pull',
+        'docker run also pulls automatically if the image isn\'t already on your machine — running docker pull yourself first just makes that step visible instead of hidden inside the first docker run',
+        'docker images lists every image sitting on your machine right now, confirming what actually got pulled',
+      ].map((point) => (
+        <li
+          key={point}
+          className="flex gap-3 text-gray-300 text-sm bg-[#1a1a1a] rounded-lg px-4 py-3 border border-[#cea86f]/20"
+        >
+          <span className="gold-text">→</span>
+          {point}
+        </li>
+      ))}
+    </ul>
+    <p className="text-white leading-relaxed text-sm">
+      This tutorial uses Postgres everywhere else, so here's what actually running it looks like as a plain{' '}
+      <code className="text-[#cea86f]">docker run</code> command:
+    </p>
+    <CodeBlock label="terminal — Postgres">{`docker run -d \\
+  --name db \\
+  -e POSTGRES_USER=app \\
+  -e POSTGRES_PASSWORD=changeme \\
+  -e POSTGRES_DB=app \\
+  -p 5432:5432 \\
+  -v pgdata:/var/lib/postgresql/data \\
+  postgres:16-alpine`}</CodeBlock>
+    <ul className="space-y-2">
+      {[
+        'POSTGRES_USER / POSTGRES_PASSWORD / POSTGRES_DB — the image reads these on first boot and creates that user, password and database for you, no setup script needed',
+        '-v pgdata:/var/lib/postgresql/data — mounts a named volume at the path where Postgres actually writes its data, so the data survives even if this container is removed and recreated',
+      ].map((point) => (
+        <li
+          key={point}
+          className="flex gap-3 text-gray-300 text-sm bg-[#1a1a1a] rounded-lg px-4 py-3 border border-[#cea86f]/20"
+        >
+          <span className="gold-text">→</span>
+          {point}
+        </li>
+      ))}
+    </ul>
+    <p className="text-white leading-relaxed text-sm">
+      Swapping engines is almost entirely a matter of swapping the image and its particular set of env vars — the
+      pattern (official image, config via env vars, data on a mounted volume) stays the same. MySQL, for example:
+    </p>
+    <CodeBlock label="terminal — MySQL">{`docker run -d \\
+  --name db \\
+  -e MYSQL_ROOT_PASSWORD=changeme \\
+  -e MYSQL_DATABASE=app \\
+  -p 3306:3306 \\
+  -v mysqldata:/var/lib/mysql \\
+  mysql:8`}</CodeBlock>
+    <p className="text-white leading-relaxed text-sm">
+      And MongoDB, which uses a root username/password pair instead of a single password:
+    </p>
+    <CodeBlock label="terminal — MongoDB">{`docker run -d \\
+  --name db \\
+  -e MONGO_INITDB_ROOT_USERNAME=app \\
+  -e MONGO_INITDB_ROOT_PASSWORD=changeme \\
+  -p 27017:27017 \\
+  -v mongodata:/data/db \\
+  mongo:7`}</CodeBlock>
   </div>
 )
 
