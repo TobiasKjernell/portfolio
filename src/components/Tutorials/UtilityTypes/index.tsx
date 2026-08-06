@@ -50,6 +50,88 @@ const statusColor: Record<Status, string> = {
   error: 'red',
   // missing a key here is a compile error — not a runtime "undefined"
 }`}</CodeBlock>
+
+    <p className="text-white leading-relaxed text-sm">
+      The same idea works for components, not just strings. Map a key straight to a component and swap a chain
+      of <code className="text-[#cea86f]">if</code>/<code className="text-[#cea86f]">switch</code> statements for
+      an object lookup — adding a new key without an entry is a compile error instead of a silent no-render:
+    </p>
+    <CodeBlock>{`type IconName = 'home' | 'settings' | 'profile'
+
+const icons: Record<IconName, () => JSX.Element> = {
+  home: HomeIcon,
+  settings: SettingsIcon,
+  profile: ProfileIcon,
+}
+
+const NavIcon = ({ name }: { name: IconName }) => {
+  const Icon = icons[name]
+  return <Icon />
+}`}</CodeBlock>
+
+    <p className="text-white leading-relaxed text-sm">
+      The same pattern scales up to whole steps or pages, e.g. a wizard that renders a different component per
+      step without a switch statement:
+    </p>
+    <CodeBlock>{`type Step = 'details' | 'payment' | 'confirm'
+
+const stepComponents: Record<Step, () => JSX.Element> = {
+  details: DetailsStep,
+  payment: PaymentStep,
+  confirm: ConfirmStep,
+}
+
+const Wizard = ({ step }: { step: Step }) => {
+  const StepComponent = stepComponents[step]
+  return <StepComponent />
+}`}</CodeBlock>
+
+    <p className="text-white leading-relaxed text-sm">
+      It's also a clean way to render TanStack Query's status without an{' '}
+      <code className="text-[#cea86f]">if/else if/else</code> chain — each branch of{' '}
+      <code className="text-[#cea86f]">status</code> gets its own renderer, and TypeScript flags it if a status is
+      ever left out:
+    </p>
+    <CodeBlock>{`type QueryStatus = 'pending' | 'error' | 'success'
+
+const statusView: Record<QueryStatus, (user?: User) => JSX.Element> = {
+  pending: () => <Spinner />,
+  error: () => <ErrorMessage />,
+  success: (user) => <UserCard user={user!} />,
+}
+
+const UserProfile = ({ id }: { id: string }) => {
+  const { status, data } = useQuery({
+    queryKey: ['user', id],
+    queryFn: () => fetchUser(id),
+  })
+
+  return statusView[status](data)
+}`}</CodeBlock>
+
+    <p className="text-white leading-relaxed text-sm">
+      And when the data itself is the lookup — say an API returns a{' '}
+      <code className="text-[#cea86f]">User</code> and you need human-readable labels for a details table —{' '}
+      <code className="text-[#cea86f]">Record&lt;keyof User, string&gt;</code> keeps the label map in sync with
+      the type. Renaming a field on <code className="text-[#cea86f]">User</code> without updating the labels
+      becomes a compile error rather than a blank cell in production:
+    </p>
+    <CodeBlock>{`const fieldLabels: Record<keyof User, string> = {
+  id: 'ID',
+  name: 'Full Name',
+  email: 'Email Address',
+}
+
+const UserDetails = ({ user }: { user: User }) => (
+  <dl>
+    {(Object.keys(fieldLabels) as (keyof User)[]).map((key) => (
+      <div key={key}>
+        <dt>{fieldLabels[key]}</dt>
+        <dd>{user[key]}</dd>
+      </div>
+    ))}
+  </dl>
+)`}</CodeBlock>
   </div>
 )
 
