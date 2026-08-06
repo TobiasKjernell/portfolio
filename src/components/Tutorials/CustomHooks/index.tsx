@@ -122,20 +122,49 @@ export class ApiError extends Error {
   }
 }
 
-const fetchApi = async <T,>(url: string, options: FetchApiOptions = {}): Promise<T> => {
-  const { method = 'GET', body, headers } = options
-  const response = await fetch(url, {
-    method,
-    headers: body !== undefined ? { 'Content-Type': 'application/json', ...headers } : headers,
-    body: body !== undefined ? JSON.stringify(body) : undefined,
-  })
+const fetchApi = async <T>(url: string, options: FetchApiOptions = {}): Promise<T> => {
+    const { method = 'GET', body, headers: extraHeaders } = options
+    const isFormData = body instanceof FormData
+    const headers = {
+        ...(body !== undefined && !isFormData ? { 'Content-Type': 'application/json' } : {}),
+        ...extraHeaders,
+    }
+    try {
+        const response = await fetch(url, {
+            method,
+            headers: Object.keys(headers).length ? headers : undefined,
+            body: body !== undefined ? (isFormData ? body : JSON.stringify(body)) : undefined,
+        });
 
-  if (!response.ok) {
-    throw new ApiError(response.status, \`HTTP Error: \${response.status} \${response.statusText}\`)
-  }
+        if (!response.ok) {
+            throw new ApiError(
+                response.status,
+                HTTP Error: \${response.status} \${response.statusText}
+            );
+        }
 
-  return response.json() as Promise<T>
-}
+        if (response.status === 204 || response.statusText === 'No Content') {
+            return [] as unknown as T;
+        }
+
+        const data = await response.json() as T;
+        return data ?? ([] as unknown as T);
+    } catch (error) {
+        if (error instanceof ApiError) {
+            throw error;
+        }
+
+        if (error instanceof SyntaxError) {
+            throw new ApiError(0, 'Failed to parse response JSON', error);
+        }
+
+        if (error instanceof TypeError) {
+            throw new ApiError(0, 'Network request failed', error);
+        }
+
+        throw new ApiError(0, 'An unknown error occurred', error);
+    }
+};
 
 const getAppOverview = (clientName: string): Promise<IGetAppOverview[]> =>
   fetchApi<IGetAppOverview[]>(\`/api/Dashboard/GetAppOverview?clientName=\${clientName}\`)`}</CodeBlock>
