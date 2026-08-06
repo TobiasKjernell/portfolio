@@ -6,6 +6,7 @@ import WorkSearchPage from './pages/WorkSearchPage'
 import TutorialsPage from './pages/TutorialsPage'
 import SystemDesignPage from './pages/TutorialsPage/SystemDesign'
 import TypeScriptReactPage from './pages/TutorialsPage/TypeScriptReact'
+import DockerKubernetesPage from './pages/TutorialsPage/DockerKubernetes'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/tutorials' element={<TutorialsPage />} />
         <Route path='/tutorials/system-design' element={<SystemDesignPage />} />
         <Route path='/tutorials/typescript-with-react' element={<TypeScriptReactPage />} />
+        <Route path='/tutorials/docker-and-kubernetes' element={<DockerKubernetesPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <ScrollNavigation />

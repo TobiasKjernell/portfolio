@@ -20,4 +20,11 @@ export const tutorials: TutorialMeta[] = [
       'Typing props, state, events and hooks the right way — plus when to just let inference do the work instead.',
     tags: ['TypeScript', 'React', 'Best Practices'],
   },
+  {
+    slug: 'docker-and-kubernetes',
+    title: 'Docker & Kubernetes',
+    description:
+      'Containerizing a full stack — frontend, backend and database — with Docker Compose locally, then deploying it all on Kubernetes.',
+    tags: ['Docker', 'Kubernetes', 'DevOps', 'Fullstack'],
+  },
 ]

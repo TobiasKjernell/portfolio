@@ -63,6 +63,20 @@ export const Arrow = ({ dir = 'down' }: { dir?: 'down' | 'right' }) => (
   <span className="gold-text text-lg leading-none">{dir === 'down' ? '↓' : '→'}</span>
 )
 
+export const StepList = ({ steps }: { steps: string[] }) => (
+  <ol className="space-y-2">
+    {steps.map((step, index) => (
+      <li
+        key={step}
+        className="flex gap-3 text-gray-300 text-sm bg-[#1a1a1a] rounded-lg px-4 py-3 border border-[#cea86f]/20"
+      >
+        <span className="gold-text font-semibold shrink-0">{index + 1}.</span>
+        {step}
+      </li>
+    ))}
+  </ol>
+)
+
 const TOKEN_PATTERN =
   /(\/\/.*$)|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*`)|(\b(?:const|let|var|function|return|interface|type|import|export|from|if|else|for|while|extends|implements|new|as|void|null|undefined|true|false|this|typeof|async|await|default|of|in|class|public|private|readonly|static|switch|case|break|continue|try|catch|finally|throw|do|instanceof)\b)|(\b(?:string|number|boolean|any|unknown|never|object|symbol|bigint)\b)|(\b\d+(?:\.\d+)?\b)|(\b[A-Z][A-Za-z0-9_]*\b)|([a-zA-Z_$][\w$]*(?=\())/g
 
