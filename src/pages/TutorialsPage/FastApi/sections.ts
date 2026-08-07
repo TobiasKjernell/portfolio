@@ -1,0 +1,16 @@
+export const sections = [
+  { id: 'what-is-fastapi', label: 'What Is FastAPI' },
+  { id: 'project-setup', label: 'Project Setup' },
+  { id: 'first-endpoint', label: 'Your First Endpoint' },
+  { id: 'config-and-env', label: 'Configuration & .env' },
+  { id: 'database-connection', label: 'Connecting To The Database' },
+  { id: 'models', label: 'Database Models' },
+  { id: 'schemas', label: 'Pydantic Schemas' },
+  { id: 'routers-and-crud', label: 'Routers, Params & CRUD' },
+  { id: 'authentication', label: 'Authentication (JWT)' },
+  { id: 'authorization', label: 'Authorization & Ownership' },
+  { id: 'migrations-with-alembic', label: 'Migrations With Alembic' },
+  { id: 'testing', label: 'Testing With Pytest' },
+  { id: 'containerizing', label: 'Containerizing With Docker' },
+  { id: 'key-takeaways', label: 'Key Takeaways' },
+]

@@ -27,4 +27,11 @@ export const tutorials: TutorialMeta[] = [
       'Containerizing a full stack — frontend, backend and database — with Docker Compose locally, then deploying it all on Kubernetes.',
     tags: ['Docker', 'Kubernetes', 'DevOps', 'Fullstack'],
   },
+  {
+    slug: 'fastapi',
+    title: 'FastAPI',
+    description:
+      'Building a real Python backend from zero — routing, async SQLAlchemy, Pydantic schemas, JWT auth, Alembic migrations, testing and Docker.',
+    tags: ['Python', 'FastAPI', 'Backend', 'PostgreSQL'],
+  },
 ]
