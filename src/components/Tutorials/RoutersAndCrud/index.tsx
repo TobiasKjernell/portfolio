@@ -68,14 +68,84 @@ async def create_post(post_in: schemas.PostCreate, db: DbSession):
       </div>
 
       <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-3">
-        <span className="text-sm font-semibold gold-text">Mounting The Router</span>
-        <CodeBlock label="main.py">{`from routers import posts, users
+        <span className="text-sm font-semibold gold-text">Assembling The Real main.py</span>
+        <p className="text-white leading-relaxed text-sm">
+          This is the point where <code>main.py</code> stops being the one-route toy from the first step and
+          becomes the file that actually ties the whole app together: CORS, both routers, cleanup on shutdown, and
+          consistent error responses.
+        </p>
+        <CodeBlock label="main.py">{`from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
+from fastapi.exception_handlers import (
+    http_exception_handler,
+    request_validation_exception_handler,
+)
+from starlette.exceptions import HTTPException as StarletteHTTPException
+
+from database import engine
+from routers import posts, users
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    yield
+    # runs once, on shutdown — release the database engine's connection pool cleanly
+    await engine.dispose()
+
+app = FastAPI(title="Blog Dev Test", lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # the frontend dev server
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
-app.include_router(posts.router, prefix="/api/posts", tags=["Posts"])`}</CodeBlock>
+app.include_router(posts.router, prefix="/api/posts", tags=["Posts"])
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_override(request: Request, exception: StarletteHTTPException):
+    if request.url.path.startswith("/api"):
+        return await http_exception_handler(request, exception)
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_override(request: Request, exception: RequestValidationError):
+    if request.url.path.startswith("/api"):
+        return await request_validation_exception_handler(request, exception)`}</CodeBlock>
         <p className="text-white leading-relaxed text-sm">
-          Every route defined with <code>@router.get("")</code> inside <code>posts.py</code> is now actually served
-          at <code>/api/posts</code> — the prefix is applied once, here, instead of repeated on every route.
+          <code>app.include_router(...)</code> is the part that actually connects the router modules from above —
+          every route defined with <code>@router.get("")</code> inside <code>posts.py</code> is now served at{' '}
+          <code>/api/posts</code>, with the prefix applied once here instead of repeated on every route.
+        </p>
+      </div>
+
+      <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-3">
+        <span className="text-sm font-semibold gold-text">Why lifespan Instead Of Just Letting The Process Exit</span>
+        <p className="text-white leading-relaxed text-sm">
+          <code>lifespan</code> is an async context manager FastAPI runs once around the whole life of the app:
+          everything before <code>yield</code> runs at startup, everything after it runs at shutdown. Here there's
+          nothing to do at startup, but shutdown matters — <code>engine</code> (from the database step) is holding
+          open a pool of real TCP connections to Postgres. <code>await engine.dispose()</code> closes all of them
+          cleanly instead of letting the process die with connections still open, which is the difference between a
+          graceful restart and Postgres logging a pile of abruptly dropped connections every time you redeploy.
+        </p>
+      </div>
+
+      <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-3">
+        <span className="text-sm font-semibold gold-text">Why Override The Default Exception Handlers</span>
+        <p className="text-white leading-relaxed text-sm">
+          FastAPI already turns a raised <code>HTTPException</code> or a failed Pydantic validation into a JSON
+          error response without any of this — so why override the handlers at all? Because this project also
+          serves things that aren't part of the JSON API (interactive docs at <code>/docs</code>, the OpenAPI
+          schema at <code>/openapi.json</code>), and the two checks —{' '}
+          <code>if request.url.path.startswith("/api")</code> — make sure this custom error formatting only ever
+          applies to actual API routes, leaving FastAPI's own defaults in place everywhere else. It's a pattern
+          worth knowing even before you need it: register a handler for an exception type with{' '}
+          <code>@app.exception_handler(...)</code>, and every route that raises it (or lets Pydantic raise it) gets
+          routed through your function instead of the built-in one.
         </p>
       </div>
 
