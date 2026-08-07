@@ -8,6 +8,7 @@ import { TypingChildrenSection } from '../../../components/Tutorials/TypingChild
 import { GenericsInReactSection } from '../../../components/Tutorials/GenericsInReact'
 import { CustomHooksSection } from '../../../components/Tutorials/CustomHooks'
 import { UtilityTypesSection } from '../../../components/Tutorials/UtilityTypes'
+import { AdvancedTypeScriptSection } from '../../../components/Tutorials/AdvancedTypeScript'
 import { TypeScriptKeyTakeawaysSection } from '../../../components/Tutorials/TypeScriptKeyTakeaways'
 import { SectionMenu } from './SectionMenu'
 import { MobileSectionMenu } from './MobileSectionMenu'
@@ -65,6 +66,9 @@ const TypeScriptReactPage = () => {
             </div>
             <div id="utility-types" className="scroll-mt-8">
               <UtilityTypesSection />
+            </div>
+            <div id="advanced-typescript" className="scroll-mt-8">
+              <AdvancedTypeScriptSection />
             </div>
             <div id="key-takeaways" className="scroll-mt-8">
               <TypeScriptKeyTakeawaysSection />

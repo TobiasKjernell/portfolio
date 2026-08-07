@@ -8,5 +8,6 @@ export const sections = [
   { id: 'generics', label: 'Generics in Components & Hooks' },
   { id: 'custom-hooks', label: 'Typing Custom Hooks' },
   { id: 'utility-types', label: 'Utility Types' },
+  { id: 'advanced-typescript', label: 'Advanced & Expert TypeScript' },
   { id: 'key-takeaways', label: 'Key Takeaways' },
 ]
