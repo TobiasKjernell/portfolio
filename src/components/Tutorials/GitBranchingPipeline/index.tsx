@@ -20,14 +20,15 @@ const TwoTierDiagramSection = () => (
       once develop confirms the feature is good does the branch get merged into main by hand — the PR was never
       the thing doing the merging, just the diff and discussion sitting next to it the whole time.
     </p>
-    <CodeBlock>{`t0   push feature/login, open PR → main        (diff visible, nothing merges yet)
-t1   git switch develop && git pull            (always get develop's latest first)
-t2   git merge feature/login                   (direct merge, no PR — this is the testing step)
-t3   team tests on develop, using the PR diff as the checklist
-t4   develop confirms it's good
-t5   git switch main && git pull, then merge main → feature/login, resolve conflicts, commit
-t6   main moved again while you were resolving? merge main → feature/login again, repeat until caught up
-t7   branch is conflict-free and up to date — git switch main, git merge feature/login, git push (by hand, not the PR button)`}</CodeBlock>
+    <CodeBlock>{`t0   git switch main && git pull, then git switch -c feature/login   (branch from up-to-date main)
+t1   push feature/login, open PR → main        (diff visible, nothing merges yet)
+t2   git switch develop && git pull            (always get develop's latest first)
+t3   git merge feature/login                   (direct merge, no PR — this is the testing step)
+t4   team tests on develop, using the PR diff as the checklist
+t5   develop confirms it's good
+t6   git switch main && git pull, then merge main → feature/login, resolve conflicts, commit
+t7   main moved again while you were resolving? merge main → feature/login again, repeat until caught up
+t8   branch is conflict-free and up to date — git switch main, git merge feature/login, git push (by hand, not the PR button)`}</CodeBlock>
   </div>
 )
 
@@ -36,7 +37,7 @@ const PipelineStepsSection = () => (
     <span className="text-sm font-semibold gold-text">One Feature, Start To Finish</span>
     <StepList
       steps={[
-        'Branch off an up-to-date develop — git switch develop && git pull, then git switch -c feature/short-name',
+        'Branch off an up-to-date main — git switch main && git pull, then git switch -c feature/short-name',
         'Commit small, focused changes as the work progresses — each one should stand on its own',
         'Push the branch and open a pull request into main right away — not to merge it yet, just so the diff is visible and reviewers know exactly what to test',
         'Always git pull develop first, then merge the same branch straight into it, separately from the PR — no review needed for this step, it just makes the feature available to try out',
@@ -44,7 +45,13 @@ const PipelineStepsSection = () => (
         "Once it's accepted on develop, that same branch gets merged into main by hand next — the PR stays open for the diff and discussion, but it's not what performs the merge",
       ]}
     />
-    <CodeBlock>{`git push -u origin feature/login
+    <CodeBlock>{`git switch main
+git pull
+git switch -c feature/login
+
+# ...commit as you go...
+
+git push -u origin feature/login
 # open a pull request: feature/login → main (diff visible, not merged yet)
 
 git switch develop
@@ -68,7 +75,7 @@ const FailedTestLoopSection = () => (
 develop:      A---B-----M1(bug found)--M2(fix merged)---C`}</CodeBlock>
     <StepList
       steps={[
-        "Don't fix it directly on develop — go back to git switch feature/login (or, if it was already deleted, branch a fresh fix/login-redirect off develop)",
+        "Don't fix it directly on develop — go back to git switch feature/login (or, if it was already deleted, branch a fresh fix/login-redirect off an up-to-date main)",
         'Reproduce the problem and commit the fix there, same as any normal change — this also updates the still-open PR automatically',
         'git pull develop first, same as always, then merge the branch into it again the same direct way, so the team can re-test with the fix included',
         "Only merge the branch into main once develop has confirmed the fix actually works — and don't delete the branch before then either",
@@ -206,8 +213,8 @@ const NamingSection = () => (
     </p>
     <CodeBlock>{`main                     # always deployable, protected — what's actually in production
 develop                  # shared integration branch — low-ceremony, what the team tests against
-feature/user-auth        # new work, branched off develop
-fix/login-redirect       # a fix for something found on develop, also branched off develop
+feature/user-auth        # new work, branched off an up-to-date main
+fix/login-redirect       # a fix for something found on develop, also branched off main
 release/1.4.0            # optional — for coordinating several promoted features into one shipped version`}</CodeBlock>
   </div>
 )
