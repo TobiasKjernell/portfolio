@@ -50,6 +50,39 @@ const RevertVsResetSection = () => (
   </div>
 )
 
+const RevertingAMergeSection = () => (
+  <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-4">
+    <span className="text-sm font-semibold gold-text">Reverting A Merge</span>
+    <p className="text-white leading-relaxed text-sm">
+      This is the tool for "we shipped it and it's broken in production, roll it back now" — the exact situation
+      a bug slipping past develop and into main is meant to be rare, but not impossible. A regular commit has one
+      parent, so <code className="text-[#cea86f]">git revert</code> knows exactly what to undo. A merge commit
+      has two — the branch you were on, and the branch you merged in — so Git needs to be told which side counts
+      as the baseline before it can figure out the reverse diff.
+    </p>
+    <CodeBlock>{`git log --oneline --graph --merges   # find the merge commit's hash
+git revert -m 1 a1b2c3d              # -m 1 = keep main's side as the baseline
+git push origin main`}</CodeBlock>
+    <p className="text-white leading-relaxed text-sm">
+      <code className="text-[#cea86f]">-m 1</code> means "parent 1 is the mainline" — parent 1 is whichever
+      branch you were standing on when you ran <code className="text-[#cea86f]">git merge</code> (almost always{' '}
+      <code className="text-[#cea86f]">main</code>), and parent 2 is the branch that got merged in. Reverting
+      against parent 1 undoes everything the feature branch added; that's what you want the vast majority of the
+      time.
+    </p>
+    <p className="text-white leading-relaxed text-sm">
+      One gotcha worth knowing before it surprises you: the revert commit doesn't erase the original commits from
+      history, it just cancels them out. If the branch gets fixed and you try to merge it back in later, Git sees
+      those same changes as already applied <em>and</em> already undone, which can produce a confusing empty
+      diff or conflict. The fix is to revert the revert first, which un-does the rollback, and then merge the
+      fixed branch in normally:
+    </p>
+    <CodeBlock>{`git revert <revert-commit-sha>   # undoes the rollback, restoring the original changes
+git push origin main
+git merge feature/login          # now the fix merges in cleanly`}</CodeBlock>
+  </div>
+)
+
 const ReflogSection = () => (
   <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-4">
     <span className="text-sm font-semibold gold-text">git reflog — The Safety Net</span>
@@ -81,6 +114,7 @@ export const GitSafeUndoToolkitSection = () => (
       <GoldenRuleSection />
       <StashSection />
       <RevertVsResetSection />
+      <RevertingAMergeSection />
       <ReflogSection />
     </div>
   </SectionShell>
