@@ -34,4 +34,11 @@ export const tutorials: TutorialMeta[] = [
       'Building a real Python backend from zero — routing, async SQLAlchemy, Pydantic schemas, JWT auth, Alembic migrations, testing and Docker.',
     tags: ['Python', 'FastAPI', 'Backend', 'PostgreSQL'],
   },
+  {
+    slug: 'git',
+    title: 'Git',
+    description:
+      'Version control from first principles — branching and merging, working with remotes, safely undoing mistakes, and a branching pipeline that holds up on a real team.',
+    tags: ['Git', 'Version Control', 'Workflow', 'Collaboration'],
+  },
 ]

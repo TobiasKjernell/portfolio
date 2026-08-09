@@ -8,6 +8,7 @@ import SystemDesignPage from './pages/TutorialsPage/SystemDesign'
 import TypeScriptReactPage from './pages/TutorialsPage/TypeScriptReact'
 import DockerKubernetesPage from './pages/TutorialsPage/DockerKubernetes'
 import FastApiPage from './pages/TutorialsPage/FastApi'
+import GitPage from './pages/TutorialsPage/Git'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/tutorials/typescript-with-react' element={<TypeScriptReactPage />} />
         <Route path='/tutorials/docker-and-kubernetes' element={<DockerKubernetesPage />} />
         <Route path='/tutorials/fastapi' element={<FastApiPage />} />
+        <Route path='/tutorials/git' element={<GitPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <ScrollNavigation />
