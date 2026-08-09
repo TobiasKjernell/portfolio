@@ -130,6 +130,15 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },
+    {
+        id: 13,
+        company: 'Backlight',
+        workTitle: 'Junior Fullstack Engineer',
+        country: 'Sweden',
+        appliedDate: '2026-08-09',
+        status: 'Waiting',
+        interview: false,
+    },
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
