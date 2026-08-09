@@ -41,4 +41,11 @@ export const tutorials: TutorialMeta[] = [
       'Version control from first principles — branching and merging, working with remotes, safely undoing mistakes, and a branching pipeline that holds up on a real team.',
     tags: ['Git', 'Version Control', 'Workflow', 'Collaboration'],
   },
+  {
+    slug: 'ai-fundamentals',
+    title: 'AI Fundamentals',
+    description:
+      'How language models actually work — tokens, embeddings, RAG, fine-tuning, agents, and every buzzword in between, plus the libraries used to build with them.',
+    tags: ['AI', 'LLMs', 'RAG', 'Machine Learning'],
+  },
 ]
