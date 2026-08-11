@@ -58,6 +58,7 @@ const LIBRARIES: { name: string; role: string }[] = [
   { name: 'Alembic', role: 'Generates and applies versioned migration scripts as the models change, so the database schema has a reviewable history instead of drifting silently.' },
   { name: 'pwdlib', role: 'Hashes and verifies passwords with Argon2, so a real password is never stored anywhere — only a one-way hash of it.' },
   { name: 'PyJWT', role: 'Creates and verifies the signed JSON Web Tokens issued at login, which prove a user\'s identity on every later request.' },
+  { name: 'python-multipart', role: 'Lets FastAPI parse form-encoded request bodies — required by OAuth2PasswordRequestForm on the login route, even though you never import it directly.' },
   { name: 'pytest / pytest-asyncio', role: 'The test runner, plus the plugin that lets it run and await async test functions.' },
   { name: 'httpx', role: 'An HTTP client. In tests, it calls the FastAPI app directly in-process — no real server or network needed.' },
 ]

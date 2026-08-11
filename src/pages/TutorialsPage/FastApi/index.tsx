@@ -3,6 +3,7 @@ import { WhatIsFastApiSection } from '../../../components/Tutorials/WhatIsFastAp
 import { FastApiProjectSetupSection } from '../../../components/Tutorials/FastApiProjectSetup'
 import { FirstEndpointSection } from '../../../components/Tutorials/FirstEndpoint'
 import { ConfigAndEnvSection } from '../../../components/Tutorials/ConfigAndEnv'
+import { PostgresSetupSection } from '../../../components/Tutorials/PostgresSetup'
 import { DatabaseConnectionSection } from '../../../components/Tutorials/DatabaseConnection'
 import { FastApiModelsSection } from '../../../components/Tutorials/FastApiModels'
 import { PydanticSchemasSection } from '../../../components/Tutorials/PydanticSchemas'
@@ -81,6 +82,9 @@ const FastApiPage = () => {
             </div>
             <div id="config-and-env" className="scroll-mt-8">
               <ConfigAndEnvSection />
+            </div>
+            <div id="postgres-setup" className="scroll-mt-8">
+              <PostgresSetupSection />
             </div>
             <div id="database-connection" className="scroll-mt-8">
               <DatabaseConnectionSection />

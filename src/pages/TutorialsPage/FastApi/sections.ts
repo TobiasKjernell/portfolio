@@ -3,6 +3,7 @@ export const sections = [
   { id: 'project-setup', label: 'Project Setup' },
   { id: 'first-endpoint', label: 'Your First Endpoint' },
   { id: 'config-and-env', label: 'Configuration & .env' },
+  { id: 'postgres-setup', label: 'Setting Up PostgreSQL' },
   { id: 'database-connection', label: 'Connecting To The Database' },
   { id: 'models', label: 'Database Models' },
   { id: 'schemas', label: 'Pydantic Schemas' },

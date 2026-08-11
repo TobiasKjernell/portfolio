@@ -19,10 +19,12 @@ export const AuthenticationWithJwtSection = () => (
     title="Authentication With JWT"
     paragraphs={[
       "Authentication answers one question: who is making this request? The standard approach for an API is: hash and store passwords (never the plain text), verify a submitted password against that hash at login, and if it matches, hand the client back a signed token — a JWT (JSON Web Token) — that proves their identity on every future request without them having to log in again each time.",
-      "Install pwdlib[argon2] for password hashing and pyjwt for creating/reading tokens.",
+      "Install pwdlib[argon2] for password hashing, pyjwt for creating/reading tokens, and python-multipart — FastAPI needs it to parse the form-encoded body OAuth2PasswordRequestForm expects.",
     ]}
   >
     <div className="space-y-6">
+      <CodeBlock label="terminal">{`pip install "pwdlib[argon2]" pyjwt python-multipart`}</CodeBlock>
+
       <CodeBlock label="auth.py — password hashing">{`from pwdlib import PasswordHash
 
 password_hash = PasswordHash.recommended()  # Argon2 under the hood
@@ -74,10 +76,15 @@ def verify_access_token(token: str) -> str | None:
         </p>
       </div>
 
+      <CodeBlock label="schemas.py — the token response">{`class Token(BaseModel):
+    access_token: str
+    token_type: str`}</CodeBlock>
+
       <CodeBlock label="routers/users.py — the login route">{`from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 import models, schemas
 from auth import create_access_token, verify_password
