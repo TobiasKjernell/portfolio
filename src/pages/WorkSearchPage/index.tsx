@@ -136,7 +136,7 @@ const applications: JobApplication[] = [
         workTitle: 'Junior Fullstack Engineer',
         country: 'Sweden',
         appliedDate: '2026-08-09',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
 ]
