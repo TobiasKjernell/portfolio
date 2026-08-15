@@ -10,6 +10,7 @@ import DockerKubernetesPage from './pages/TutorialsPage/DockerKubernetes'
 import FastApiPage from './pages/TutorialsPage/FastApi'
 import GitPage from './pages/TutorialsPage/Git'
 import AiFundamentalsPage from './pages/TutorialsPage/AiFundamentals'
+import RagAppPage from './pages/TutorialsPage/RagApp'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/tutorials/fastapi' element={<FastApiPage />} />
         <Route path='/tutorials/git' element={<GitPage />} />
         <Route path='/tutorials/ai-fundamentals' element={<AiFundamentalsPage />} />
+        <Route path='/tutorials/rag-app' element={<RagAppPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <ScrollNavigation />

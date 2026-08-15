@@ -1,0 +1,17 @@
+export const sections = [
+  { id: 'overview', label: 'What We\'re Building' },
+  { id: 'pgvector-setup', label: 'DB — Installing pgvector' },
+  { id: 'pgvector-schema', label: 'DB — Schema & Models' },
+  { id: 'pgvector-search', label: 'DB — Similarity Search' },
+  { id: 'backend-setup', label: 'Backend — Project Setup' },
+  { id: 'provider-abstraction', label: 'Backend — Provider Abstraction' },
+  { id: 'backend-auth', label: 'Backend — Auth & Keys' },
+  { id: 'ingestion-pipeline', label: 'Backend — Ingestion Pipeline' },
+  { id: 'query-endpoint', label: 'Backend — The RAG Endpoint' },
+  { id: 'error-handling', label: 'Backend — Error Handling' },
+  { id: 'testing-and-docker', label: 'Backend — Testing & Docker' },
+  { id: 'frontend-setup', label: 'Frontend — Project Setup' },
+  { id: 'frontend-state-and-api', label: 'Frontend — State & API Layer' },
+  { id: 'frontend-chat-ui', label: 'Frontend — Chat & Upload UI' },
+  { id: 'key-takeaways', label: 'Key Takeaways' },
+]

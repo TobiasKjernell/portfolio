@@ -48,4 +48,11 @@ export const tutorials: TutorialMeta[] = [
       'How language models actually work — tokens, embeddings, RAG, fine-tuning, agents, and every buzzword in between, plus the libraries used to build with them.',
     tags: ['AI', 'LLMs', 'RAG', 'Machine Learning'],
   },
+  {
+    slug: 'rag-app',
+    title: 'Building A RAG App',
+    description:
+      'A real RAG stack, step by step — a FastAPI backend with a swappable multi-provider (and local LLM) abstraction, Postgres with pgvector, and a React + Tailwind frontend.',
+    tags: ['RAG', 'FastAPI', 'React', 'pgvector'],
+  },
 ]
