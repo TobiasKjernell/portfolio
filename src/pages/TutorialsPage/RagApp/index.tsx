@@ -11,6 +11,7 @@ import { RagQueryEndpointSection } from '../../../components/Tutorials/RagQueryE
 import { RagErrorHandlingSection } from '../../../components/Tutorials/RagErrorHandling'
 import { RagTestingAndDockerSection } from '../../../components/Tutorials/RagTestingAndDocker'
 import { RagFrontendSetupSection } from '../../../components/Tutorials/RagFrontendSetup'
+import { RagFrontendLoginSection } from '../../../components/Tutorials/RagFrontendLogin'
 import { RagFrontendStateAndApiSection } from '../../../components/Tutorials/RagFrontendStateAndApi'
 import { RagChatUiSection } from '../../../components/Tutorials/RagChatUi'
 import { RagKeyTakeawaysSection } from '../../../components/Tutorials/RagKeyTakeaways'
@@ -106,6 +107,9 @@ const RagAppPage = () => {
             </div>
             <div id="frontend-setup" className="scroll-mt-8">
               <RagFrontendSetupSection />
+            </div>
+            <div id="frontend-login" className="scroll-mt-8">
+              <RagFrontendLoginSection />
             </div>
             <div id="frontend-state-and-api" className="scroll-mt-8">
               <RagFrontendStateAndApiSection />

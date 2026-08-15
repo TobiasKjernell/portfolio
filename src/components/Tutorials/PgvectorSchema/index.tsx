@@ -38,6 +38,39 @@ class Chunk(Base):
     document: Mapped["Document"] = relationship(back_populates="chunks")`}</CodeBlock>
 
       <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-3">
+        <span className="text-sm font-semibold gold-text">Where users.id Actually Comes From</span>
+        <p className="text-white leading-relaxed text-sm">
+          <code>ForeignKey("users.id")</code> assumes a <code>users</code> table already exists — this tutorial
+          builds the RAG API as an addition to the FastAPI tutorial's blog project, not a brand-new one, which is
+          also why the auth section later reuses that project's <code>auth.py</code> and <code>models.User</code>{' '}
+          unchanged instead of writing login from scratch. If you followed that tutorial first, the table's already
+          there and nothing here needs to change.
+        </p>
+        <p className="text-white leading-relaxed text-sm">
+          Starting this as a standalone project instead? You need <em>some</em> table to own documents — a minimal
+          users table is enough, without building out the full login flow the FastAPI tutorial covers:
+        </p>
+        <CodeBlock label="models.py — minimal standalone version">{`class User(Base):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    email: Mapped[str] = mapped_column(unique=True)
+    password_hash: Mapped[str]`}</CodeBlock>
+        <p className="text-white leading-relaxed text-sm">
+          No <code>relationship()</code> back to <code>Document</code> here on purpose — everything in this
+          tutorial (the ingestion route, the query route) filters by <code>Document.owner_id</code> directly rather
+          than walking <code>user.documents</code>, so the plain foreign key is all <code>Document.owner_id</code>{' '}
+          needs to resolve.
+        </p>
+        <p className="text-white leading-relaxed text-sm">
+          Either way, <code>get_current_user</code> in the auth section still needs a real{' '}
+          <code>models.User</code> to look up and a way to issue tokens for it (signup + login endpoints, password
+          hashing) — the FastAPI tutorial's authentication section covers building that from zero if you don't
+          already have it.
+        </p>
+      </div>
+
+      <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-3">
         <span className="text-sm font-semibold gold-text">Vector() Is Just Another Column Type</span>
         <p className="text-white leading-relaxed text-sm">
           <code>pgvector.sqlalchemy.Vector</code> plugs into SQLAlchemy the same way <code>Text</code> or{' '}

@@ -24,15 +24,20 @@ export default defineConfig({
       <CodeBlock label="src/index.css">{`@import "tailwindcss";`}</CodeBlock>
 
       <CodeBlock label="project layout">{`src/
-├── main.tsx           # wraps <App /> in a QueryClientProvider
-├── App.tsx
+├── main.tsx             # wraps <App /> in a QueryClientProvider
+├── App.tsx              # the login gate — LoginForm vs. the chat UI
 ├── api/
-│   └── ragClient.ts    # fetch wrappers for /ingest and /query
+│   ├── authApi.ts       # login()
+│   └── ragClient.ts     # fetch wrappers for /ingest and /query
+├── hooks/
+│   ├── useAuthToken.ts
+│   └── useAskQuestion.ts
 ├── store/
-│   └── chatStore.ts    # Zustand store — messages, current session
+│   ├── authStore.ts     # Zustand store — the JWT, persisted
+│   └── chatStore.ts     # Zustand store — messages, current session
 └── components/
+    ├── LoginForm.tsx
     ├── ChatWindow.tsx
-    ├── MessageList.tsx
     └── DocumentUpload.tsx`}</CodeBlock>
 
       <CodeBlock label="src/main.tsx">{`import { StrictMode } from 'react'

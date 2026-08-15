@@ -11,6 +11,7 @@ export const sections = [
   { id: 'error-handling', label: 'Backend — Error Handling' },
   { id: 'testing-and-docker', label: 'Backend — Testing & Docker' },
   { id: 'frontend-setup', label: 'Frontend — Project Setup' },
+  { id: 'frontend-login', label: 'Frontend — Login' },
   { id: 'frontend-state-and-api', label: 'Frontend — State & API Layer' },
   { id: 'frontend-chat-ui', label: 'Frontend — Chat & Upload UI' },
   { id: 'key-takeaways', label: 'Key Takeaways' },

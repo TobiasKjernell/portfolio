@@ -71,6 +71,16 @@ export const RagAppOverviewSection = () => (
         ]}
       />
       <ProviderTradeoffs />
+
+      <div className="bg-[#111111] border border-[#cea86f]/20 rounded-lg p-6 space-y-3">
+        <span className="text-sm font-semibold gold-text">One Prerequisite: A Users Table</span>
+        <p className="text-white leading-relaxed text-sm">
+          Documents need an owner, and the query/ingest routes need something to authenticate — so this tutorial
+          assumes a <code>users</code> table and JWT auth already exist, and builds the RAG API as an addition to the
+          FastAPI tutorial's blog project rather than a brand-new one. Starting fresh instead is fine too; the
+          database section shows the minimal users table needed to stand this up on its own.
+        </p>
+      </div>
     </div>
   </SectionShell>
 )
