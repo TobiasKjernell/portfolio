@@ -55,4 +55,11 @@ export const tutorials: TutorialMeta[] = [
       'A real RAG stack, step by step — a FastAPI backend with a swappable multi-provider (and local LLM) abstraction, Postgres with pgvector, and a React + Tailwind frontend.',
     tags: ['RAG', 'FastAPI', 'React', 'pgvector'],
   },
+  {
+    slug: 'ci-cd-fundamentals',
+    title: 'CI/CD Fundamentals',
+    description:
+      'What CI/CD actually means, how a pipeline runs from commit to production, the tools people use to build one, and the deployment strategies that keep releases boring.',
+    tags: ['CI/CD', 'DevOps', 'GitHub Actions', 'Deployment'],
+  },
 ]

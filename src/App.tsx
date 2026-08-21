@@ -11,6 +11,7 @@ import FastApiPage from './pages/TutorialsPage/FastApi'
 import GitPage from './pages/TutorialsPage/Git'
 import AiFundamentalsPage from './pages/TutorialsPage/AiFundamentals'
 import RagAppPage from './pages/TutorialsPage/RagApp'
+import CiCdFundamentalsPage from './pages/TutorialsPage/CiCd'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/tutorials/git' element={<GitPage />} />
         <Route path='/tutorials/ai-fundamentals' element={<AiFundamentalsPage />} />
         <Route path='/tutorials/rag-app' element={<RagAppPage />} />
+        <Route path='/tutorials/ci-cd-fundamentals' element={<CiCdFundamentalsPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <ScrollNavigation />
