@@ -116,6 +116,13 @@ export const HomeLabSection = () => {
                 title="Websites"
                 description="This portfolio and other side projects are built and served from here — pushed live automatically on every deploy."
               />
+              <VerticalConnector />
+              <LabNode
+                icon="📊"
+                title="Grafana + Prometheus"
+                description="Also deployed on this VM via Coolify. Prometheus scrapes metrics from services on the server, and Grafana turns them into dashboards for visibility into what's running."
+                techs={['Grafana', 'Prometheus']}
+              />
             </div>
 
             {/* Branch 2: Verdaccio + Tailscale */}
