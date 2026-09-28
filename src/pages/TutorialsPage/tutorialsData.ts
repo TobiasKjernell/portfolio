@@ -62,4 +62,11 @@ export const tutorials: TutorialMeta[] = [
       'What CI/CD actually means, how a pipeline runs from commit to production, the tools people use to build one, and the deployment strategies that keep releases boring.',
     tags: ['CI/CD', 'DevOps', 'GitHub Actions', 'Deployment'],
   },
+  {
+    slug: 'linux-fundamentals',
+    title: 'Linux Fundamentals',
+    description:
+      'An introduction to Linux from zero — essential commands, permissions, user management, SSH, Ubuntu vs. Ubuntu Server, and the habits that make a terminal feel like home.',
+    tags: ['Linux', 'Ubuntu', 'SSH', 'DevOps'],
+  },
 ]
