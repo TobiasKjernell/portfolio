@@ -163,7 +163,7 @@ const applications: JobApplication[] = [
         workTitle: 'Software Engineer',
         country: 'Sweden',
         appliedDate: '2026-09-18',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
 ]
