@@ -1,0 +1,15 @@
+export const sections = [
+  { id: 'what-is-bash', label: 'What Is Bash' },
+  { id: 'commands-exit-codes', label: 'Commands, Exit Codes & Chaining' },
+  { id: 'variables', label: 'Variables & Quoting' },
+  { id: 'expansions-globbing', label: 'Globbing & Brace Expansion' },
+  { id: 'io-redirection', label: 'Input, Output & Pipes' },
+  { id: 'conditionals', label: 'Conditionals & Tests' },
+  { id: 'loops', label: 'Loops' },
+  { id: 'job-control', label: 'Job Control & Processes' },
+  { id: 'functions', label: 'Functions' },
+  { id: 'scripts', label: 'Writing Real Scripts' },
+  { id: 'advanced', label: 'Advanced Bash' },
+  { id: 'shell-config', label: 'Shell Configuration' },
+  { id: 'key-takeaways', label: 'Key Takeaways' },
+]

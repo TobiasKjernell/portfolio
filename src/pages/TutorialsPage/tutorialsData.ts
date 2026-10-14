@@ -69,4 +69,11 @@ export const tutorials: TutorialMeta[] = [
       'An introduction to Linux from zero — essential commands, permissions, user management, SSH, Ubuntu vs. Ubuntu Server, and the habits that make a terminal feel like home.',
     tags: ['Linux', 'Ubuntu', 'SSH', 'DevOps'],
   },
+  {
+    slug: 'bash',
+    title: 'Bash: Beginner to Advanced',
+    description:
+      'What Bash is and how it works, from your first command to real scripts — variables, quoting, globbing, pipes, conditionals, loops, job control, functions, argument parsing, arrays, regex and shell config.',
+    tags: ['Bash', 'Shell Scripting', 'Linux', 'Automation'],
+  },
 ]

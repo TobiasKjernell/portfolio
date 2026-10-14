@@ -13,6 +13,7 @@ import AiFundamentalsPage from './pages/TutorialsPage/AiFundamentals'
 import RagAppPage from './pages/TutorialsPage/RagApp'
 import CiCdFundamentalsPage from './pages/TutorialsPage/CiCd'
 import LinuxFundamentalsPage from './pages/TutorialsPage/Linux'
+import BashFundamentalsPage from './pages/TutorialsPage/Bash'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/tutorials/rag-app' element={<RagAppPage />} />
         <Route path='/tutorials/ci-cd-fundamentals' element={<CiCdFundamentalsPage />} />
         <Route path='/tutorials/linux-fundamentals' element={<LinuxFundamentalsPage />} />
+        <Route path='/tutorials/bash' element={<BashFundamentalsPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <ScrollNavigation />
