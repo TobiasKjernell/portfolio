@@ -184,6 +184,15 @@ const applications: JobApplication[] = [
         status: 'Waiting',
         interview: false,
     },
+    {
+        id: 19,
+        company: 'SEBisen',
+        workTitle: 'Junior Platform Operations Engineer',
+        country: 'Sweden',
+        appliedDate: '2026-10-18',
+        status: 'Waiting',
+        interview: false,
+    },
 ]
 
 const statusStyles: Record<ApplicationStatus, string> = {
