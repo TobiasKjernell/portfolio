@@ -186,7 +186,7 @@ const applications: JobApplication[] = [
     },
     {
         id: 19,
-        company: 'SEBisen',
+        company: 'SEB',
         workTitle: 'Junior Platform Operations Engineer',
         country: 'Sweden',
         appliedDate: '2026-10-18',
