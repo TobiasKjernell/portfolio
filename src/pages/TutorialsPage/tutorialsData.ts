@@ -76,4 +76,11 @@ export const tutorials: TutorialMeta[] = [
       'What Bash is and how it works, from your first command to real scripts — variables, quoting, globbing, pipes, conditionals, loops, job control, functions, argument parsing, arrays, regex and shell config.',
     tags: ['Bash', 'Shell Scripting', 'Linux', 'Automation'],
   },
+  {
+    slug: 'ubuntu-server',
+    title: 'Ubuntu Servers',
+    description:
+      'Running Ubuntu Server in production today — initial hardening, SSH and firewall security, automated patching, systemd, Nginx + TLS, Docker, monitoring and backups.',
+    tags: ['Ubuntu', 'Server', 'DevOps', 'Security'],
+  },
 ]

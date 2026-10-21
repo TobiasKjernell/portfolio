@@ -1,0 +1,15 @@
+export const sections = [
+  { id: 'what-is-ubuntu-server', label: 'What Is Ubuntu Server' },
+  { id: 'initial-setup', label: 'Initial Setup Checklist' },
+  { id: 'networking', label: 'Networking' },
+  { id: 'ssh-hardening', label: 'Hardening SSH Access' },
+  { id: 'firewall', label: 'Firewall With UFW' },
+  { id: 'updates', label: 'Updates & Patching' },
+  { id: 'systemd', label: 'Managing Services With systemd' },
+  { id: 'web-server', label: 'Running A Web Server' },
+  { id: 'docker', label: 'Running Containers With Docker' },
+  { id: 'monitoring', label: 'Monitoring, Logs & Troubleshooting' },
+  { id: 'backups', label: 'Backups & Disaster Recovery' },
+  { id: 'best-practices', label: 'Best Practices Checklist' },
+  { id: 'key-takeaways', label: 'Key Takeaways' },
+]
