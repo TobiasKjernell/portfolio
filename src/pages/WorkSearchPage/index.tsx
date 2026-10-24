@@ -172,7 +172,7 @@ const applications: JobApplication[] = [
         workTitle: 'Createtive Frontend Developer',
         country: 'Sweden',
         appliedDate: '2026-10-14',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
     {
