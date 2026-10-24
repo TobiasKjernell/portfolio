@@ -80,7 +80,7 @@ export const tutorials: TutorialMeta[] = [
     slug: 'ubuntu-server',
     title: 'Ubuntu Servers',
     description:
-      'Running Ubuntu Server in production today — initial hardening, SSH and firewall security, automated patching, systemd, Nginx + TLS, Docker, monitoring and backups.',
+      'Running Ubuntu Server in production today — initial hardening, SSH and firewall security, automated patching, systemd, Nginx + TLS, Docker, monitoring, cron jobs and backups.',
     tags: ['Ubuntu', 'Server', 'DevOps', 'Security'],
   },
 ]

@@ -9,6 +9,7 @@ import { UbuntuServerSystemdSection } from '../../../components/Tutorials/Ubuntu
 import { UbuntuServerWebServerSection } from '../../../components/Tutorials/UbuntuServerWebServer'
 import { UbuntuServerDockerSection } from '../../../components/Tutorials/UbuntuServerDocker'
 import { UbuntuServerMonitoringSection } from '../../../components/Tutorials/UbuntuServerMonitoring'
+import { UbuntuServerCronSection } from '../../../components/Tutorials/UbuntuServerCron'
 import { UbuntuServerBackupsSection } from '../../../components/Tutorials/UbuntuServerBackups'
 import { UbuntuServerBestPracticesSection } from '../../../components/Tutorials/UbuntuServerBestPractices'
 import { UbuntuServerKeyTakeawaysSection } from '../../../components/Tutorials/UbuntuServerKeyTakeaways'
@@ -31,7 +32,7 @@ const UbuntuServerPage = () => {
           <p className="text-gray-400 text-sm md:text-base">
             How Ubuntu Server actually works and how to run one in production today — initial hardening,
             networking, SSH and firewall security, automated patching, systemd services, Nginx + TLS, Docker,
-            monitoring, backups, and the daily habits that keep a server boring in the best way.
+            monitoring, cron jobs, backups, and the daily habits that keep a server boring in the best way.
           </p>
           <div className="flex flex-wrap gap-3 pt-1">
             <a
@@ -90,6 +91,9 @@ const UbuntuServerPage = () => {
             </div>
             <div id="monitoring" className="scroll-mt-8">
               <UbuntuServerMonitoringSection />
+            </div>
+            <div id="cron" className="scroll-mt-8">
+              <UbuntuServerCronSection />
             </div>
             <div id="backups" className="scroll-mt-8">
               <UbuntuServerBackupsSection />

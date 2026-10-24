@@ -150,7 +150,7 @@ const applications: JobApplication[] = [
     },
     {
         id: 15,
-        company: 'Drafted Company',
+        company: 'Drafted Company', 
         workTitle: 'DevOps Engineer',
         country: 'Sweden',
         appliedDate: '2026-09-02',

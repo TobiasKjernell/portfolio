@@ -9,6 +9,7 @@ export const sections = [
   { id: 'web-server', label: 'Running A Web Server' },
   { id: 'docker', label: 'Running Containers With Docker' },
   { id: 'monitoring', label: 'Monitoring, Logs & Troubleshooting' },
+  { id: 'cron', label: 'Scheduled Tasks (cron & Timers)' },
   { id: 'backups', label: 'Backups & Disaster Recovery' },
   { id: 'best-practices', label: 'Best Practices Checklist' },
   { id: 'key-takeaways', label: 'Key Takeaways' },
