@@ -68,7 +68,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 6,
+        id: 7,
         company: 'Nordic Transport & IT Services AB',
         workTitle: 'Web Developer',
         country: 'Sweden',
@@ -77,7 +77,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 7,
+        id: 8,
         company: 'Hedvig',
         workTitle: 'Software Developer',
         country: 'Sweden',
@@ -86,7 +86,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 8,
+        id: 9,
         company: 'Creed Media',
         workTitle: 'Junior Developer',
         country: 'Sweden',
@@ -95,7 +95,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 9,
+        id: 10,
         company: 'Nkel',
         workTitle: 'Web Developer',
         country: 'Sweden',
@@ -104,7 +104,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 10,
+        id: 11,
         company: 'Tenth Revolution Group (Frontend Developer at AI focused Microsoft Partner)',
         workTitle: 'Frontend Developer',
         country: 'Sweden',
@@ -113,7 +113,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 11,
+        id: 12,
         company: 'Sellpy',
         workTitle: 'Junior Software Engineer',
         country: 'Sweden',
@@ -122,7 +122,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 12,
+        id: 13,
         company: 'SSC Space',
         workTitle: 'Frontend Software Engineer',
         country: 'Sweden',
@@ -131,7 +131,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 13,
+        id: 14,
         company: 'Backlight',
         workTitle: 'Junior Fullstack Engineer',
         country: 'Sweden',
@@ -140,16 +140,16 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 14,
+        id: 15,
         company: 'Gjensidige',
         workTitle: 'Frontend Utvecklare',
         country: 'Sweden',
         appliedDate: '2026-08-19',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
     {
-        id: 15,
+        id: 16,
         company: 'Drafted Company', 
         workTitle: 'DevOps Engineer',
         country: 'Sweden',
@@ -158,7 +158,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 16,
+        id: 17,
         company: 'Swish',
         workTitle: 'Software Engineer',
         country: 'Sweden',
@@ -167,7 +167,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 17,
+        id: 18,
         company: 'Geoguessr',
         workTitle: 'Createtive Frontend Developer',
         country: 'Sweden',
@@ -176,7 +176,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 18,
+        id: 19,
         company: 'Polisen',
         workTitle: 'Frontend Developer',
         country: 'Sweden',
@@ -185,7 +185,7 @@ const applications: JobApplication[] = [
         interview: false,
     },
     {
-        id: 19,
+        id: 20,
         company: 'SEB',
         workTitle: 'Junior Platform Operations Engineer',
         country: 'Sweden',
