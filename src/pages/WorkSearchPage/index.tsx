@@ -150,7 +150,7 @@ const applications: JobApplication[] = [
     },
     {
         id: 16,
-        company: 'Drafted Company', 
+        company: 'Drafted Company',
         workTitle: 'DevOps Engineer',
         country: 'Sweden',
         appliedDate: '2026-09-02',
@@ -190,7 +190,7 @@ const applications: JobApplication[] = [
         workTitle: 'Junior Platform Operations Engineer',
         country: 'Sweden',
         appliedDate: '2026-10-18',
-        status: 'Waiting',
+        status: 'Declined',
         interview: false,
     },
 ]
