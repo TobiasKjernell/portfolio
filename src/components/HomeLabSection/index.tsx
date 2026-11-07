@@ -38,6 +38,22 @@ const VerticalConnector = ({ height = 'h-8' }: { height?: string }) => (
   <div className={`w-px ${height} bg-[#cea86f]`} />
 )
 
+const BranchConnector = ({ count }: { count: number }) => {
+  const centers = Array.from({ length: count }, (_, i) => `${((i + 0.5) / count) * 100}%`)
+
+  return (
+    <div className="hidden md:block relative w-full h-8">
+      <div
+        className="absolute top-0 border-t-2 border-[#cea86f]"
+        style={{ left: centers[0], right: `calc(100% - ${centers[centers.length - 1]})` }}
+      />
+      {centers.map((left, i) => (
+        <div key={i} className="absolute top-0 w-px h-8 bg-[#cea86f] -translate-x-1/2" style={{ left }} />
+      ))}
+    </div>
+  )
+}
+
 export const HomeLabSection = () => {
   const labRef = useRef<HTMLDivElement>(null)
 
@@ -93,15 +109,11 @@ export const HomeLabSection = () => {
 
           <VerticalConnector />
 
-          {/* Branch connector: horizontal bar spanning between the two VM columns */}
-          <div className="hidden md:block relative w-2/3 h-8">
-            <div className="absolute left-1/4 right-1/4 top-0 border-t-2 border-[#cea86f]" />
-            <div className="absolute left-1/4 top-0 w-px h-8 bg-[#cea86f] -translate-x-1/2" />
-            <div className="absolute right-1/4 top-0 w-px h-8 bg-[#cea86f] translate-x-1/2" />
-          </div>
+          {/* Branch connector: horizontal bar spanning all four columns */}
+          <BranchConnector count={4} />
 
-          {/* Two VM branches */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          {/* Four branches: two VMs, two LXCs */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 w-full">
             {/* Branch 1: Coolify + Cloudflare */}
             <div className="flex flex-col items-center gap-0">
               <LabNode
@@ -125,19 +137,51 @@ export const HomeLabSection = () => {
               />
             </div>
 
-            {/* Branch 2: Verdaccio + Tailscale */}
+            {/* Branch 2: Verdaccio */}
             <div className="flex flex-col items-center gap-0">
               <LabNode
                 icon="📦"
-                title="VM: Verdaccio + Tailscale"
-                description="Verdaccio is a private NPM registry for hosting my own packages. Tailscale creates a private mesh VPN so I can read/write packages from any of my devices without exposing anything publicly."
-                techs={['Verdaccio', 'Tailscale', 'Private VPN']}
+                title="VM: Verdaccio"
+                description="A private NPM registry for hosting my own packages. Reachable only from devices on the home Headscale mesh, so I can read/write packages from anywhere without exposing anything publicly."
+                techs={['Verdaccio', 'Private Registry']}
               />
               <VerticalConnector />
               <LabNode
                 icon="🔒"
                 title="NPM Packages"
-                description="Personal packages published and installed privately across my machines, secured entirely behind Tailscale's mesh network."
+                description="Personal packages published and installed privately across my machines, secured entirely behind the home mesh network."
+              />
+            </div>
+
+            {/* Branch 3: Headscale */}
+            <div className="flex flex-col items-center gap-0">
+              <LabNode
+                icon="🔑"
+                title="LXC: Headscale"
+                description="A self-hosted, open-source implementation of Tailscale's control server. Runs the coordination plane for the mesh — issuing keys and managing an unlimited number of accounts and devices without needing a Tailscale subscription."
+                techs={['Headscale', 'WireGuard', 'Self-Hosted']}
+              />
+              <VerticalConnector />
+              <LabNode
+                icon="🛰️"
+                title="Mesh VPN"
+                description="Every other device and container — laptops, phones, the Verdaccio and Coolify VMs — connects to this server as its control plane instead of Tailscale's hosted one."
+              />
+            </div>
+
+            {/* Branch 4: Subnet Router */}
+            <div className="flex flex-col items-center gap-0">
+              <LabNode
+                icon="🌉"
+                title="LXC: Subnet Router"
+                description="A second lightweight container running the Tailscale client in subnet-router mode, registered against the home Headscale server. Advertises the home LAN so any device on the mesh can reach the whole network, not just this one box."
+                techs={['Tailscale Client', 'Subnet Router']}
+              />
+              <VerticalConnector />
+              <LabNode
+                icon="🏠"
+                title="Home Network Access"
+                description="Lets any authorized device on the mesh — wherever it physically is — reach other devices and services on my home LAN, as if it were plugged in locally."
               />
             </div>
           </div>
